@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Log In</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'system/login.css' %}">
+        <link rel="stylesheet" type="text/css" href="  https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">  
+    </head>
+    <body>
+        <div class="login">
+            <h1>LOGINS</h1>
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="input-container">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" onfocus="this.value=''" name='username' value="Username">
+                </div>
+                <div class="input-container">
+                    <i class="fa-solid fa-key"></i>
+                    <input type="text" onfocus="this.value=''" name='password' value="Password">
+                </div> 
+                <p>forgot password?</p>
+                <button type="Submit"> LOGIN </button>
+                <div>Need an Account?
+                    <a href='{% url 'register' %}'> Sign Up Now </a>
+                </div>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{message.tags}}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {%endif%}
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<div>
+    <h1>Registration Form</h1>
+    <hr>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        Username: <input type="text" name="username">
+        <br>
+        <br>
+
+        Password: <input type="text" name="password">
+        <br>
+        <br>
+
+        Confirm Password: <input type="text" name="confirm_password">
+        <br>
+        <br>
+        
+        <input type="submit" value="Submit">
+        <a href='{% url 'login' %}'>already have an account</a>
+
+    </form>
+
+</div>
